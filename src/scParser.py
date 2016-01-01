@@ -9,7 +9,7 @@ class scParser:
         table = self.findTable(html)
         for i in range(0, 5):
             print(table[i])
-        return ""
+        return table
 
     def pruneRow(self, row):
         return [row[0], row[2], row[3], row[4], row[5]]
@@ -31,7 +31,3 @@ class scParser:
         offset = text[startIdx:].find(back)
         endIdx = startIdx + offset
         return text[startIdx:endIdx]
-
-    # def writeLog(self, text):
-    #     with open('log.html', 'w', encoding='UTF-8') as f:
-    #         f.write(text)
