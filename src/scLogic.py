@@ -11,17 +11,16 @@ class scLogic:
         self.storage = scStorage()
 
     def run(self, year):
-        addresses = self.makeAddresses(year)
-        print(addresses)
+        urls = self.makeUrls(year)
 
-        for address in addresses:
-            source = self.scrapper.run(address)
+        for url in urls:
+            source = self.scrapper.run(url)
             data = self.parser.run(source)
             self.storage.run(data)
 
-    def makeAddresses(self, year):
-        addresses = []
+    def makeUrls(self, year):
+        urls = []
         categories = ["K", "E"]
         for category in categories:
-            addresses.append("http://www.gaonchart.co.kr/main/section/chart/album.gaon?termGbn=year&hitYear={}&targetTime=13&nationGbn={}".format(year, category))
-        return addresses
+            urls.append("http://www.gaonchart.co.kr/main/section/chart/album.gaon?termGbn=year&hitYear={}&targetTime=13&nationGbn={}".format(year, category))
+        return urls
