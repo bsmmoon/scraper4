@@ -7,9 +7,7 @@ class scScrapper:
 
     def run(self, url):
         print(url)
-
         session = requests.Session()
         read = session.post(url)
         html = read.content.decode(read.encoding).strip()
-
         return html
