@@ -32,9 +32,6 @@ class scStorage:
         else:
             return True
 
-    def csv(self, arr):
-        return ','.join(arr)
-
     def writeData(self, fileDirectory, text):
         with open(fileDirectory, 'w', encoding='UTF-8') as f:
             f.write(text)
@@ -42,8 +39,3 @@ class scStorage:
     def appendData(self, fileDirectory, text):
         with open(fileDirectory, 'a', encoding='UTF-8') as f:
             f.write(text)
-
-
-    # def writeLog(self, text):
-    #     with open('log.html', 'w', encoding='UTF-8') as f:
-    #         f.write(text)
