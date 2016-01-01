@@ -14,8 +14,8 @@ class scLogic:
         urls = self.makeUrls(year)
 
         for url in urls:
-            source = self.scrapper.run(url)
-            data = self.parser.run(source)
+            html = self.scrapper.run(url)
+            data = self.parser.run(html)
             self.storage.run(data)
 
     def makeUrls(self, year):
