@@ -9,7 +9,7 @@ class scParser:
         table = self.findTable(html)
         for i in range(0, 5):
             print(table[i])
-        return ""
+        return table
 
     def pruneRow(self, row):
         return [row[0], row[2], row[3], row[4], row[5]]
