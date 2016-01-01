@@ -7,17 +7,23 @@ class scParser:
 
     def run(self, html):
         table = self.findTable(html)
+        table = self.pruneTable(html)
         return ""
+
+    def pruneTable(self, table):
+        return table
 
     def findTable(self, html):
         html = html.replace("\n", "")
         html = self.find(html, "<table>", "</table>")
         table = re.findall("<tr(.*?)</tr", html)
-        print(len(table))
-        for index in range(len(table)):
-            table[index] = re.findall("<td(.*?)</td", table[index])
-        print(len(table[10]))
-        return table
+        result = []
+        for i in range(1, len(table)):
+            row = table[i]
+            row = re.findall(">(.*?)<", row)
+            row = list(filter(lambda x: len(x.strip()) > 0, row))
+            result.append(row)
+        return result
 
     def find(self, text, front, back):
         startIdx = text.find(front) + len(front)
