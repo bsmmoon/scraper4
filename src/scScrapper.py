@@ -5,4 +5,5 @@ class scScrapper:
         print("scScrapper")
 
     def run(self, address):
+        print(address)
         return ""

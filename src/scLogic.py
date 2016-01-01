@@ -12,7 +12,6 @@ class scLogic:
 
     def run(self, year):
         addresses = self.makeAddresses(year)
-        print(addresses)
 
         for address in addresses:
             source = self.scrapper.run(address)
