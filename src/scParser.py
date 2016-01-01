@@ -7,11 +7,12 @@ class scParser:
 
     def run(self, html):
         table = self.findTable(html)
-        table = self.pruneTable(html)
+        for i in range(0, 5):
+            print(table[i])
         return ""
 
-    def pruneTable(self, table):
-        return table
+    def pruneRow(self, row):
+        return [row[0], row[2], row[3], row[4], row[5]]
 
     def findTable(self, html):
         html = html.replace("\n", "")
@@ -22,7 +23,7 @@ class scParser:
             row = table[i]
             row = re.findall(">(.*?)<", row)
             row = list(filter(lambda x: len(x.strip()) > 0, row))
-            result.append(row)
+            result.append(self.pruneRow(row))
         return result
 
     def find(self, text, front, back):
