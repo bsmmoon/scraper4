@@ -9,14 +9,16 @@ class scStorage:
         self.fileDirectory = self.dataDir + self.fileName
         self.writeData(self.fileDirectory, "")
 
-    def run(self, data):
+    def run(self, lhs, data):
         self.ensure_dir(self.dataDir)
         self.ensure_file(self.fileDirectory)
-        self.appendData(self.fileDirectory, self.listToString(data))
+        self.appendData(self.fileDirectory, self.tableToString(lhs, data))
 
-    def listToString(self, arr):
+    def tableToString(self, lhs, table):
         result = ''
-        for row in arr:
+        for row in table:
+            result += ';'.join(lhs)
+            result += ';'
             result += ';'.join(row)
             result += '\n'
         return result
